@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 
 const routerV1 = require('./routers/v1/index');
@@ -16,6 +17,14 @@ app.use('*', (req,res,next) => {
 });
 
 routerV1(app);
+
+//Errorhandler
+//app.use(function(err, req, res, next) {
+//    console.log(err);
+//});
+
+//Middleware - file upload
+//app.use(fileUpload)
 
 mongoose.connect("mongodb://localhost/test_node", {
     useNewUrlParser: true,
